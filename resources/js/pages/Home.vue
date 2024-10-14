@@ -10,7 +10,7 @@
     <HomeProductSectionOne />
 
     <!-- home banner 1 -->
-    <HomeBannerSectionOne />
+<!--    <HomeBannerSectionOne />-->
 
     <!-- shop section 1 -->
     <HomeShopSectionOne v-if="is_addon_activated('multi_vendor')" />
@@ -37,7 +37,7 @@
     <HomeProductSectionThree />
 
     <!-- home banner 3 -->
-    <HomeBannerSectionThree />
+<!--    <HomeBannerSectionThree />-->
 
     <!-- shop section 4 -->
     <HomeShopSectionFour v-if="is_addon_activated('multi_vendor')" />
@@ -55,17 +55,17 @@
     <HomeProductSectionFive />
 
     <!-- home banner 4 -->
-    <HomeBannerSectionFour />
+<!--    <HomeBannerSectionFour />-->
 
     <!-- product section 6 -->
     <HomeProductSectionSix />
 
-    <div class="py-8 bg-grey-lighten-4 mt-8">
-      <v-container>
-        <HomeAboutText />
-        <HomeAllCategories />
-      </v-container>
-    </div>
+<!--    <div class="py-8 bg-grey-lighten-4 mt-8">-->
+<!--      <v-container>-->
+<!--        <HomeAboutText />-->
+<!--        <HomeAllCategories />-->
+<!--      </v-container>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -83,7 +83,7 @@ import HomeProductSectionTwo from "../components/home/HomeProductSectionTwo.vue"
 import HomeBannerSectionFour from "../components/home/HomeBannerSectionFour.vue";
 import HomeBannerSectionOne from "../components/home/HomeBannerSectionOne.vue";
 import HomeBannerSectionThree from "../components/home/HomeBannerSectionThree.vue";
-import HomeBannerSectiontwo from "../components/home/HomeBannerSectiontwo.vue";
+import HomeBannerSectiontwo from "../components/home/HomeBannerSectionTwo.vue";
 
 import HomeAboutText from "../components/home/HomeAboutText.vue";
 import HomeAllCategories from "../components/home/HomeAllCategories.vue";

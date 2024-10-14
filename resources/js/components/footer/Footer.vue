@@ -1,12 +1,6 @@
 <template>
-  <footer class="bg-grey-darken-4 pt-8 text-white pb-14 pb-md-10 pb-lg-0">
-    <v-container class="main-footer">
-      <div class="border-bottom pb-7 border-gray-800 mb-6">
-        <img
-          :src="data.footer_logo"
-          class="mw-100"
-        />
-      </div>
+  <footer class="footer-background pt-8 text-white pb-14 pb-md-10 pb-lg-0">
+    <v-container class="main-footer footer-content">
       <v-row>
         <v-col
           class=""
@@ -15,11 +9,31 @@
           md="6"
           lg="3"
         >
-          <div class="primary-text fs-14 fw-700 mb-7">
+<!--            <div class="border-bottom pb-7 border-gray-800 mb-6">-->
+            <div class="pb-2 mb-2">
+                <img
+                    :src="data.footer_logo"
+                    class="mw-100"
+                />
+            </div>
+          <div class="fs-14 fw-400 mb-7">
             {{ $t("get_your_special_offers_coupons__more") }}
           </div>
 
-          <v-form v-on:submit.prevent="subscribe()">
+<!--            <VForm class="subscribe-form d-flex align-center gap-4">-->
+<!--                <VTextField-->
+<!--                    label="Subscribe to newsletter"-->
+<!--                    placeholder="john@email.com"-->
+<!--                    theme="dark"-->
+<!--                    density="compact"-->
+<!--                    class="footer-text"-->
+<!--                />-->
+<!--                <VBtn size="large">-->
+<!--                    Subscribe-->
+<!--                </VBtn>-->
+<!--            </VForm>-->
+
+          <v-form class="d-flex align-center gap-4" v-on:submit.prevent="subscribe()">
             <v-text-field
               :placeholder="$t('your_email_address')"
               type="email"
@@ -30,28 +44,40 @@
               required
               variant="plain"
             ></v-text-field>
+              <v-btn
+                  class="px-1 mb-2 mx-2"
+                  elevation="0"
+                  type="submit"
+                  color="white"
+                  size="large"
+                  @click="subscribe"
+                  :loading="subscribeFormLoading"
+                  :disabled="subscribeFormLoading"
+              >{{ $t("subscribe") }}
+              </v-btn>
+          </v-form>
 
             <!--  -->
             <p
-              v-for="error of v$.subscribeForm.email.$errors"
-              :key="error.$uid"
-              class="text-red"
+                v-for="error of v$.subscribeForm.email.$errors"
+                :key="error.$uid"
+                class="text-red"
             >
-              {{error.$message }}
+                {{error.$message }}
             </p>
 
-            <v-btn
-            variant="outlined"
-              class="px-12 mb-4"
-              elevation="0"
-              type="submit"
-              color="primary"
-              @click="subscribe"
-              :loading="subscribeFormLoading"
-              :disabled="subscribeFormLoading"
-              outlined
-            >{{ $t("subscribe") }}</v-btn>
-          </v-form>
+<!--            <v-btn-->
+<!--                variant="outlined"-->
+<!--                class="px-12 mb-4"-->
+<!--                elevation="0"-->
+<!--                type="submit"-->
+<!--                color="primary"-->
+<!--                @click="subscribe"-->
+<!--                :loading="subscribeFormLoading"-->
+<!--                :disabled="subscribeFormLoading"-->
+<!--                outlined-->
+<!--            >{{ $t("subscribe") }}-->
+<!--            </v-btn>-->
         </v-col>
         <v-col
           class="mb-5 d-none d-lg-block"
@@ -59,7 +85,7 @@
           cols="12"
           offset-lg="1"
         >
-          <h4 class="primary-text mb-4">
+          <h4 class="fs-18 mb-4">
             {{ data.footer_link_one?.title }}
           </h4>
           <ul class="list-unstyled ps-0 fs-13">
@@ -80,7 +106,7 @@
           lg="2"
           cols="12"
         >
-          <h4 class="primary-text mb-4">
+          <h4 class="fs-18 mb-4">
             {{ data.footer_link_two?.title }}
           </h4>
           <ul class="list-unstyled ps-0 fs-13">
@@ -101,7 +127,7 @@
           lg="2"
           cols="12"
         >
-          <h4 class="primary-text mb-4">{{ $t("contact_us") }}</h4>
+          <h4 class="fs-18 mb-4">{{ $t("contact_us") }}</h4>
           <ul class="list-unstyled ps-0 fs-13">
             <li class="py-2 mb-2">
               <div class="opacity-50">
@@ -141,7 +167,7 @@
             class="mobile-apps-area"
             v-if="app_store || play_store"
           >
-            <h4 class="primary-text mb-4">{{ $t("mobile_apps") }}</h4>
+            <h4 class="fs-18 mb-4">{{ $t("mobile_apps") }}</h4>
             <a
               v-if="play_store"
               :href="data.mobile_app_links?.play_store"
@@ -191,9 +217,9 @@
                   >{{ $t('login_to_seller_panel') }}</a>
                 </li>
               </div>
-        
+
             </ul>
-     
+
           </template>
 
         </v-col>
@@ -203,9 +229,9 @@
         >
           <v-expansion-panels
             flat
-            accordion            
+            accordion
           >
-          
+
             <v-expansion-panel class=" transparent text-white border-bottom border-gray-800">
               <v-expansion-panel-title
                 class="px-0"
@@ -426,6 +452,7 @@
               :class="['social-icon', { 'ms-2': i != 0 }]"
             >
               <a
+                v-if="link"
                 :href="link"
                 :class="label"
                 target="_blank"
@@ -515,7 +542,7 @@ export default {
     ...mapActions("app", ["setCookie"]),
 
     async setCookie(status) {
-     
+
       document.cookie = this.appName +'-cookie' + "=" + this.getCookieDescription;
       localStorage.setItem("cookieStatus", status);
       this.showCookie = false;
@@ -541,7 +568,7 @@ export default {
       this.subscribeFormLoading = false;
     },
   },
-  
+
 
   created() {
     if (this.getCookieStatus == null) {
@@ -555,3 +582,31 @@ export default {
 
 };
 </script>
+
+
+<style scoped>
+.footer-background {
+    position: relative;
+    background-image: url('https://richman-official.com/wp-content/uploads/2024/01/Banner-2.webp?id=3172');
+    background-size: cover;
+    background-position: center;
+}
+
+.footer-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay color with opacity */
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2; /* Ensure content appears above the overlay */
+    color: #fff; /* Adjust the text color to ensure it's readable */
+    padding: 20px; /* Adjust padding if necessary */
+}
+</style>

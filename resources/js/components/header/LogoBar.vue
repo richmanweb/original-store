@@ -1,10 +1,10 @@
 <template>
     <div class="logobar">
-        <v-container class="pb-md-0 pt-4">
+        <v-container class="pb-md-0 pt-2">
             <div class="d-flex align-center">
                 <div class="logo">
                     <router-link :to="{ name: 'Home' }" class="d-block lh-0">
-                        <img :src="appLogo" :alt="appName" height="40" />
+                        <img :src="appLogo" :alt="appName" height="75" />
                     </router-link>
                 </div>
                 <v-spacer />
@@ -32,13 +32,16 @@
                                 ></v-text-field>
                             </v-col>
                             <v-col cols="auto me-1" class="d-none d-md-block">
-                                <v-btn
-                                    class="btn-primary"
-                                    block
-                                    elevation="0"
-                                    @click.stop.prevent="search()"
-                                    >{{ $t("search") }}</v-btn
-                                >
+<!--                                <v-btn-->
+<!--                                    class="btn-primary"-->
+<!--                                    block-->
+<!--                                    elevation="0"-->
+<!--                                    @click.stop.prevent="search()"-->
+<!--                                    >{{ $t("search") }}</v-btn-->
+<!--                                >-->
+                                <i class="las la-search fs-30 lh-1 me-3 text-gray"
+                                   @click.stop.prevent="search()"
+                                ></i>
                             </v-col>
                         </v-row>
                     </v-form>
@@ -53,7 +56,7 @@
                         </div>
 
                         <div v-else>
-                            <div 
+                            <div
                                 v-if="suggestionNotFound"
                                 class="text-center ma-8 fs-16"
                             >
@@ -65,7 +68,7 @@
                                     <div class="px-2 py-1 text-uppercase fs-10 text-right bg-grey-lighten-3">{{ $t('popular_suggestions') }}</div>
                                     <ul class="list-unstyled px-5 py-2 fs-13">
                                         <li
-                                            v-for="(keyword, i) in keywords" 
+                                            v-for="(keyword, i) in keywords"
                                             :key="i"
                                             class="py-1 text-capitalize"
                                             @click="popularSuggesation(keyword)"
@@ -74,13 +77,13 @@
                                         </li>
                                     </ul>
                                 </div>
-                                
+
                                 <!-- Product Suggesations -->
                                 <div class="" v-if="products.length">
                                     <div class="px-2 py-1 text-uppercase fs-10 text-right bg-grey-lighten-3">{{ $t('products') }}</div>
                                     <ul class="list-unstyled px-5 py-2 fs-13">
-                                        <li 
-                                            v-for="(product, i) in products" 
+                                        <li
+                                            v-for="(product, i) in products"
                                             :key="i"
                                             class="py-1 d-flex align-center"
                                         >
@@ -89,11 +92,11 @@
                                                 :alt="product.name"
                                                 @error="imageFallback($event)"
                                                 class="img-fit size-50px"
-                                                
+
                                             >
                                             <div class="ml-2">
                                                 <h5 class="opacity-60 mb-1 fs-13" @click="hideSearchContainer">
-                                                    <router-link 
+                                                    <router-link
                                                         :to="{ name: 'ProductDetails', params: {slug: product.slug}}"
                                                         class="text-reset">
                                                         {{ product.name }}
@@ -117,8 +120,8 @@
                                 <div class="" v-if="categories.length">
                                     <div class="px-2 py-1 text-uppercase fs-10 text-right bg-grey-lighten-3">{{ $t('category_suggestions') }}</div>
                                     <ul class="list-unstyled px-5 fs-13">
-                                        <li 
-                                            v-for="(category, i) in categories" 
+                                        <li
+                                            v-for="(category, i) in categories"
                                             :key="i"
                                             class="py-1"
                                             @click="hideSearchContainer"
@@ -127,13 +130,13 @@
                                         </li>
                                     </ul>
                                 </div>
-                                
+
                                 <!-- Brand Suggesations -->
                                 <div class="" v-if="brands.length">
                                     <div class="px-2 py-1 text-uppercase fs-10 text-right bg-grey-lighten-3">{{ $t('brands') }}</div>
                                     <ul class="list-unstyled px-5 fs-13">
-                                        <li 
-                                            v-for="(brand, i) in brands" 
+                                        <li
+                                            v-for="(brand, i) in brands"
                                             :key="i"
                                             class="py-1"
                                             @click="hideSearchContainer"
@@ -147,8 +150,8 @@
                                 <div class="" v-if="shops.length">
                                     <div class="px-2 py-1 text-uppercase fs-10 text-right bg-grey-lighten-3">{{ $t('Shops') }}</div>
                                     <ul class="list-unstyled px-5 py-2 fs-13">
-                                        <li 
-                                            v-for="(shop, i) in shops" 
+                                        <li
+                                            v-for="(shop, i) in shops"
                                             :key="i"
                                             class="py-1 d-flex align-center"
                                         >
@@ -157,11 +160,11 @@
                                                 :alt="shop.name"
                                                 @error="imageFallback($event)"
                                                 class="img-fit size-30px"
-                                                
+
                                             >
                                             <div class="ml-3">
                                                 <h5 class="opacity-60 mb-1 fs-13" @click="hideSearchContainer">
-                                                    <router-link 
+                                                    <router-link
                                                     :to="{ name: 'ShopDetails', params: {slug: shop.slug}}"
                                                         class="text-reset">
                                                         {{ shop.name }}
@@ -174,13 +177,13 @@
 
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
                 <v-btn
                     style="height: 40px; width: 40px; min-width: 0 !important;"
-                    class="d-md-none border-gray-300 rounded-circle mx-auto mobile-search-button"
+                    class="d-md-none border-0 mx-auto mobile-search-button"
                     fab
                     variant="outlined"
                     small
@@ -191,6 +194,30 @@
                 </v-btn>
 
                 <v-spacer class="d-none d-md-block" />
+
+
+<!--                <router-link-->
+<!--                    :to="{ name: 'Wishlist' }"-->
+<!--                >-->
+<!--                    <i class="las la-heart fs-30 lh-1 me-3 text-red px-2 opacity-80"></i>-->
+<!--                </router-link>-->
+                <router-link :to="{ name: 'Wishlist' }">
+                    <v-badge
+                        :content="getTotalWishlisted"
+                    color="red"
+                    overlap
+                    bordered
+                    class="px-2 opacity-80"
+                    >
+                    <i class="las la-heart fs-30 lh-1 text-red opacity-90"></i>
+                    </v-badge>
+                </router-link>
+
+<!--                <v-app-bar-nav-icon @click="drawer = true"-->
+<!--                                    class="d-flex d-sm-none text-gray"-->
+<!--                ></v-app-bar-nav-icon>-->
+<!--                <i class="las la-bars fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" @click="drawer = true" ></i>-->
+
                 <div class="d-none d-md-block">
                     <div class="d-flex align-center" v-if="!isAuthenticated">
                         <i class="las la-user fs-30 lh-1 me-3 opacity-70"></i>
@@ -208,9 +235,7 @@
                     </div>
                     <!-- dashboard -->
                     <div class="d-flex align-center" v-else>
-                        
                         <!-- notification -->
-                       
                         <div class="notification" v-if="currentUser.user_type == 'customer'">
                             <i class="las la-bell fs-30 lh-1 me-3 opacity-70" id="menu-activator" @click="fetNotification"></i>
 
@@ -242,9 +267,10 @@
                                     </router-link>
                                 </v-list-item>
                             </v-list>
-                          
+
                             </v-menu>
                         </div>
+
                         <!--  end of notification -->
                         <i class="las la-user fs-30 lh-1 me-3 opacity-70"></i>
                         <router-link
@@ -264,6 +290,26 @@
             </div>
         </v-container>
     </div>
+    <!-- Add a navigation bar -->
+<!--    <v-navigation-drawer-->
+<!--        v-model="drawer"-->
+<!--        absolute-->
+<!--        temporary-->
+<!--    >-->
+<!--        <v-list-->
+<!--            nav-->
+<!--            dense-->
+<!--        >-->
+<!--            <v-list-item-group-->
+<!--            >-->
+<!--                <v-list-item v-for="(item, index) in items">-->
+<!--                    <v-list-item-title @click="tab = index">{{ item }}</v-list-item-title>-->
+<!--                </v-list-item>-->
+
+<!--            </v-list-item-group>-->
+<!--        </v-list>-->
+<!--    </v-navigation-drawer>-->
+    <!-- Navigation bar ends -->
 </template>
 
 <script>
@@ -289,10 +335,17 @@ export default {
         products: [],
         shops: [],
         notifications: [],
+        drawer: false,
+        tab: null,
+        items: [
+            'HOOKAH', 'Home', 'Offers', 'Best Sellers', 'About Us', 'Contact Us'
+        ],
     }),
     computed: {
         ...mapGetters("app", ["appLogo", "appName"]),
         ...mapGetters("auth", ["isAuthenticated","currentUser"]),
+        ...mapGetters("wishlist", ["getTotalWishlisted"]),
+
     },
     methods: {
         ...mapActions(["auth/logout"]),
@@ -371,12 +424,12 @@ export default {
         toggleSearch(status) {
             this.openSearch = status;
         },
-        // Close search content bar when click 
+        // Close search content bar when click
         onClick: function (event) {
             let trigger = document.getElementsByClassName(".search_content_box");
             if(trigger !== event.target ){
                 this.showSuggestionContainer = false;
-            } 
+            }
         }
     },
     mounted() {

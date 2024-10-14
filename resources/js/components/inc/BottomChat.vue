@@ -2,8 +2,8 @@
   <div v-if="generalSettings.support_chat">
     <!-- v-if="currentUser.user_type == 'customer'" -->
     <button
-     
-      :class="['bottom-chat-button text-center fw-500 fs-12 px-6 py-4 btn-primary', chatWindowOpen ? 'd-none' : 'd-none d-lg-block']"
+
+      :class="['bottom-chat-button text-center fw-500 fs-12 px-6 py-4 btn-dark', chatWindowOpen ? 'd-none' : 'd-none d-lg-block']"
       type="button"
       @click.stop="openChatWindow"
     >
@@ -73,17 +73,18 @@
         v-else
         class="text-center px-5 py-7 chat-box bg-white c-scrollbar chat-box d-flex flex-column pa-4 align-center"
       >
-        <img :src="static_asset('/assets/img/chat-login.png')" class="chat-static-avatar" />
+<!--          <img :src="static_asset('/assets/img/chat-login.png')" class="chat-static-avatar" />-->
+          <img :src="static_asset('/assets/img/user-unlock.svg')" class="chat-static-avatar pb-6" />
         <div class="fw-500">
           {{ $t("you_have_to") }}
           <router-link
             :to="{ name: 'Login' }"
-            class="primary-text"
+            class="secondary-text"
           >{{ $t("login") }}</router-link>
           {{ $t("or") }}
           <router-link
             :to="{ name: 'Registration' }"
-            class="primary-text"
+            class="secondary-text"
           >{{ $t("register") }}</router-link>
           {{ $t("as_a_customer_to_contact_us") }}
         </div>

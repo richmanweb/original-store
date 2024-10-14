@@ -12,8 +12,8 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="13.484"
-              height="15"
+              width="19.78"
+              height="22"
               viewBox="0 0 13.484 15"
             >
               <path
@@ -24,9 +24,11 @@
                 fill="#f5a100"
               />
             </svg>
-            <span class="d-block fs-10 mt-1 fw-600">{{
-                            $t("home")
-                        }}</span>
+
+<!--              <i class="las la-home fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" ></i>-->
+<!--            <span class="d-block fs-10 mt-1 fw-600">{{-->
+<!--                            $t("home")-->
+<!--                        }}</span>-->
           </router-link>
         </v-col>
         <v-col>
@@ -36,8 +38,8 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="14.993"
+              width="21.997"
+              height="21.993"
               viewBox="0 0 15 14.993"
             >
               <g
@@ -86,9 +88,11 @@
                 </g>
               </g>
             </svg>
-            <span class="d-block fs-10 mt-1 fw-600">{{
-                            $t("categories")
-                        }}</span>
+
+<!--              <i class="las la-border-all fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" ></i>-->
+<!--            <span class="d-block fs-10 mt-1 fw-600">{{-->
+<!--                            $t("categories")-->
+<!--                        }}</span>-->
           </router-link>
         </v-col>
         <v-col>
@@ -98,8 +102,8 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="14.094"
+              width="22.46"
+              height="21.094"
               viewBox="0 0 15 14.094"
             >
               <path
@@ -110,9 +114,11 @@
                 fill="#999"
               />
             </svg>
-            <span class="d-block fs-10 mt-1 fw-600">{{
-                            $t("messages")
-                        }}</span>
+
+<!--              <i class="las la-comment-dots fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" ></i>-->
+<!--            <span class="d-block fs-10 mt-1 fw-600">{{-->
+<!--                            $t("messages")-->
+<!--                        }}</span>-->
           </div>
         </v-col>
         <v-col>
@@ -123,8 +129,8 @@
             <span class="position-relative d-flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="12.978"
-                height="15"
+                width="19.04"
+                height="22"
                 viewBox="0 0 12.978 15"
               >
                 <path
@@ -137,9 +143,11 @@
               </svg>
               <span class="absolute-top-right red size-15px fs-8 d-flex align-center justify-center rounded-circle white--text">{{ getCartCount }}</span>
             </span>
-            <span class="d-block fs-10 mt-1 fw-600">{{
-                            $t("cart")
-                        }}</span>
+
+<!--              <i class="las la-shopping-cart fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" ></i>-->
+<!--            <span class="d-block fs-10 mt-1 fw-600">{{-->
+<!--                            $t("cart")-->
+<!--                        }}</span>-->
           </div>
         </v-col>
         <v-col>
@@ -147,36 +155,48 @@
             @click.stop="toggleMobileSideMenu(true)"
             class="c-pointer d-inline-flex align-center flex-column"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-            >
-              <g
-                id="Page-1"
-                transform="translate(0)"
-              >
-                <g
-                  id="Dribbble-Light-Preview"
-                  transform="translate(0)"
-                >
-                  <g id="icons">
-                    <path
-                      id="profile_round-_1342_"
-                      data-name="profile_round-[#1342]"
-                      d="M96.422,2012.5H86.578a.746.746,0,0,1-.721-1,6.3,6.3,0,0,1,11.285,0,.746.746,0,0,1-.721,1m-7.984-9a3.063,3.063,0,1,1,3.062,3,3.035,3.035,0,0,1-3.062-3m10.529,8.727A7.138,7.138,0,0,0,94.378,2007a4.45,4.45,0,0,0,1.662-4.2,4.6,4.6,0,0,0-9.133.7,4.453,4.453,0,0,0,1.717,3.5,7.138,7.138,0,0,0-4.59,5.222A1.5,1.5,0,0,0,85.54,2014H97.459a1.5,1.5,0,0,0,1.508-1.773"
-                      transform="translate(-84 -1999)"
-                      fill="#999"
-                      fill-rule="evenodd"
-                    />
+<!--            <svg-->
+<!--              xmlns="http://www.w3.org/2000/svg"-->
+<!--              width="22"-->
+<!--              height="22"-->
+<!--              viewBox="0 0 15 15"-->
+<!--            >-->
+<!--              <g-->
+<!--                id="Page-1"-->
+<!--                transform="translate(0)"-->
+<!--              >-->
+<!--                <g-->
+<!--                  id="Dribbble-Light-Preview"-->
+<!--                  transform="translate(0)"-->
+<!--                >-->
+<!--                  <g id="icons">-->
+<!--                    <path-->
+<!--                      id="profile_round-_1342_"-->
+<!--                      data-name="profile_round-[#1342]"-->
+<!--                      d="M96.422,2012.5H86.578a.746.746,0,0,1-.721-1,6.3,6.3,0,0,1,11.285,0,.746.746,0,0,1-.721,1m-7.984-9a3.063,3.063,0,1,1,3.062,3,3.035,3.035,0,0,1-3.062-3m10.529,8.727A7.138,7.138,0,0,0,94.378,2007a4.45,4.45,0,0,0,1.662-4.2,4.6,4.6,0,0,0-9.133.7,4.453,4.453,0,0,0,1.717,3.5,7.138,7.138,0,0,0-4.59,5.222A1.5,1.5,0,0,0,85.54,2014H97.459a1.5,1.5,0,0,0,1.508-1.773"-->
+<!--                      transform="translate(-84 -1999)"-->
+<!--                      fill="#999"-->
+<!--                      fill-rule="evenodd"-->
+<!--                    />-->
+<!--                  </g>-->
+<!--                </g>-->
+<!--              </g>-->
+<!--            </svg>-->
+
+              <!-- Burger Menu Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 15 15">
+                  <g id="Page-1" transform="translate(0)">
+                      <g id="Dribbble-Light-Preview" transform="translate(0)">
+                          <g id="icons">
+                              <path id="burger-icon" d="M0 1h15v2H0V1zm0 6h15v2H0V7zm0 6h15v2H0v-2z" fill="#999"/>
+                          </g>
+                      </g>
                   </g>
-                </g>
-              </g>
-            </svg>
-            <span class="d-block fs-10 mt-1 fw-600">{{
-                            $t("account")
-                        }}</span>
+              </svg>
+<!--              <i class="las la-bars fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" ></i>-->
+<!--            <span class="d-block fs-10 mt-1 fw-600">{{-->
+<!--                            $t("account")-->
+<!--                        }}</span>-->
           </div>
         </v-col>
       </v-row>

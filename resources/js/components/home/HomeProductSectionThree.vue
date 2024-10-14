@@ -1,6 +1,6 @@
 <template>
     <div class="mb-5">
-        <v-container class="py-0">
+        <v-container class="py-4">
             <h2 class="mb-4">{{ title }}</h2>
             <div v-if="loading">
                 <swiper ref="c1" class="" :options="carouselOption">
@@ -10,16 +10,16 @@
                 </swiper>
             </div>
             <div v-else>
-                <swiper ref="c2" :options="carouselOption" 
+                <swiper ref="c2" :options="carouselOption"
                 :slides-per-view=carouselOption.slidesPerView
                 :space-between=carouselOption.spaceBetween
                 :breakpoints= carouselOption.breakpoints
                 >
-                    <swiper-slide>
-                        <dynamic-link :to="banner.link" append-class="text-reset d-block lh-0" >
-                            <img :src="banner.img" class="img-fit w-100 h-333px border rounded" />
-                        </dynamic-link>
-                    </swiper-slide>
+<!--                    <swiper-slide>-->
+<!--                        <dynamic-link :to="banner.link" append-class="text-reset d-block lh-0" >-->
+<!--                            <img :src="banner.img" class="img-fit w-100 h-333px border rounded" />-->
+<!--                        </dynamic-link>-->
+<!--                    </swiper-slide>-->
                     <swiper-slide v-for="(product, i) in products" :key="i" >
                         <product-box :product-details="product" :is-loading="loading" />
                     </swiper-slide>
@@ -53,21 +53,21 @@ export default {
                 },
                 // when window width is >= 320px
                 599: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                     spaceBetween: 16,
                 },
                 // when window width is >= 480px
                 960: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                     spaceBetween: 20,
                 },
                 // when window width is >= 640px
                 1264: {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                     spaceBetween: 20,
                 },
                 1904: {
-                    slidesPerView: 6,
+                    slidesPerView: 5,
                     spaceBetween: 20,
                 },
             },
